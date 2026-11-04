@@ -5,13 +5,13 @@ status: active
 updated: 2026-11-04
 locale: id-ID
 preset:
-  code: b3QwSmPho
-  url: https://ui.shadcn.com/create?preset=b3QwSmPho
+  code: bcivVNCa
+  url: https://ui.shadcn.com/create?preset=bcivVNCa
   style: nova
   base: base
   baseColor: zinc
-  theme: lime
-  chartColor: lime
+  theme: zinc
+  chartColor: zinc
   iconLibrary: lucide
   font: geist
   fontHeading: inherit
@@ -42,8 +42,8 @@ colors:
     card-foreground: "oklch(0.141 0.005 285.823)"
     popover: "oklch(1 0 0)"
     popover-foreground: "oklch(0.141 0.005 285.823)"
-    primary: "oklch(0.841 0.238 128.85)"
-    primary-foreground: "oklch(0.405 0.101 131.063)"
+    primary: "oklch(0.21 0.006 285.885)"
+    primary-foreground: "oklch(0.985 0 0)"
     secondary: "oklch(0.967 0.001 286.375)"
     secondary-foreground: "oklch(0.21 0.006 285.885)"
     muted: "oklch(0.967 0.001 286.375)"
@@ -54,15 +54,15 @@ colors:
     border: "oklch(0.92 0.004 286.32)"
     input: "oklch(0.92 0.004 286.32)"
     ring: "oklch(0.705 0.015 286.067)"
-    chart-1: "oklch(0.897 0.196 126.665)"
-    chart-2: "oklch(0.768 0.233 130.85)"
-    chart-3: "oklch(0.648 0.2 131.684)"
-    chart-4: "oklch(0.532 0.157 131.589)"
-    chart-5: "oklch(0.453 0.124 130.933)"
+    chart-1: "oklch(0.871 0.006 286.286)"
+    chart-2: "oklch(0.552 0.016 285.938)"
+    chart-3: "oklch(0.442 0.017 285.786)"
+    chart-4: "oklch(0.37 0.013 285.805)"
+    chart-5: "oklch(0.274 0.006 286.033)"
     sidebar: "oklch(0.985 0 0)"
     sidebar-foreground: "oklch(0.141 0.005 285.823)"
-    sidebar-primary: "oklch(0.648 0.2 131.684)"
-    sidebar-primary-foreground: "oklch(0.986 0.031 120.757)"
+    sidebar-primary: "oklch(0.21 0.006 285.885)"
+    sidebar-primary-foreground: "oklch(0.985 0 0)"
     sidebar-accent: "oklch(0.967 0.001 286.375)"
     sidebar-accent-foreground: "oklch(0.21 0.006 285.885)"
     sidebar-border: "oklch(0.92 0.004 286.32)"
@@ -74,8 +74,8 @@ colors:
     card-foreground: "oklch(0.985 0 0)"
     popover: "oklch(0.21 0.006 285.885)"
     popover-foreground: "oklch(0.985 0 0)"
-    primary: "oklch(0.768 0.233 130.85)"
-    primary-foreground: "oklch(0.405 0.101 131.063)"
+    primary: "oklch(0.92 0.004 286.32)"
+    primary-foreground: "oklch(0.21 0.006 285.885)"
     secondary: "oklch(0.274 0.006 286.033)"
     secondary-foreground: "oklch(0.985 0 0)"
     muted: "oklch(0.274 0.006 286.033)"
@@ -86,15 +86,15 @@ colors:
     border: "oklch(1 0 0 / 10%)"
     input: "oklch(1 0 0 / 15%)"
     ring: "oklch(0.552 0.016 285.938)"
-    chart-1: "oklch(0.897 0.196 126.665)"
-    chart-2: "oklch(0.768 0.233 130.85)"
-    chart-3: "oklch(0.648 0.2 131.684)"
-    chart-4: "oklch(0.532 0.157 131.589)"
-    chart-5: "oklch(0.453 0.124 130.933)"
+    chart-1: "oklch(0.871 0.006 286.286)"
+    chart-2: "oklch(0.552 0.016 285.938)"
+    chart-3: "oklch(0.442 0.017 285.786)"
+    chart-4: "oklch(0.37 0.013 285.805)"
+    chart-5: "oklch(0.274 0.006 286.033)"
     sidebar: "oklch(0.21 0.006 285.885)"
     sidebar-foreground: "oklch(0.985 0 0)"
-    sidebar-primary: "oklch(0.768 0.233 130.85)"
-    sidebar-primary-foreground: "oklch(0.274 0.072 132.109)"
+    sidebar-primary: "oklch(0.488 0.243 264.376)"
+    sidebar-primary-foreground: "oklch(0.985 0 0)"
     sidebar-accent: "oklch(0.274 0.006 286.033)"
     sidebar-accent-foreground: "oklch(0.985 0 0)"
     sidebar-border: "oklch(1 0 0 / 10%)"
@@ -204,7 +204,7 @@ components:
 
 # Akbarerde Design System
 
-Dokumen ini adalah acuan visual dan interaksi untuk antarmuka Akbarerde. Fondasinya berasal dari preset shadcn/ui **`b3QwSmPho`**, dengan satu kustomisasi lokal: **Bricolage Grotesque** untuk heading/display, sementara **Geist** tetap menjadi font body dan UI.
+Dokumen ini adalah acuan visual dan interaksi untuk antarmuka Akbarerde. Fondasinya berasal dari preset shadcn/ui **`bcivVNCa`**, dengan satu kustomisasi lokal: **Bricolage Grotesque** untuk heading/display, sementara **Geist** tetap menjadi font body dan UI.
 
 Sumber kebenaran token adalah [`packages/ui/src/styles/globals.css`](../packages/ui/src/styles/globals.css). Dokumen ini menjelaskan cara memakai token tersebut, bukan menggantikannya. Jika ada perbedaan antara dokumen dan CSS, CSS menang.
 
@@ -218,7 +218,7 @@ Sumber kebenaran token adalah [`packages/ui/src/styles/globals.css`](../packages
 | ---------------- | -------------------------------------------------- |
 | Gaya             | Nova — compact, padding rapi, kontrol default 32px |
 | Netral           | Zinc — abu-abu dingin dengan sedikit chroma        |
-| Aksen            | Lime — satu warna aksi utama                       |
+| Aksen            | Zinc monokrom — aksi utama kontras tinggi          |
 | Body/UI          | Geist Variable                                     |
 | Heading/display  | Bricolage Grotesque Variable                       |
 | Ikon             | Lucide                                             |
@@ -226,16 +226,16 @@ Sumber kebenaran token adalah [`packages/ui/src/styles/globals.css`](../packages
 | Library primitif | Base UI, bukan Radix                               |
 | Dark mode        | Class `.dark`                                      |
 
-Karakter yang ingin dicapai: **produk yang padat, tenang, dan presisi, dengan satu aksen lime yang tegas.** Bricolage memberi karakter pada hierarki atas tanpa mengorbankan keterbacaan UI di ukuran kecil.
+Karakter yang ingin dicapai: **produk yang padat, tenang, dan presisi, dengan aksi monokrom kontras tinggi.** Bricolage memberi karakter pada hierarki atas tanpa mengorbankan keterbacaan UI di ukuran kecil.
 
 ---
 
 ## 2. Prinsip desain
 
 1. **Compact by default.** Gunakan kontrol 32px, grid 4px, dan jarak yang cukup untuk pemindaian cepat. Jangan membuat layout longgar hanya karena ada ruang.
-2. **Satu aksen.** Lime hanya untuk aksi utama, state aktif, atau sorotan data. Struktur memakai zinc dan permukaan muted.
+2. **Aksi monokrom.** `primary` adalah zinc pekat (light) atau zinc terang (dark). Warna ini hanya untuk aksi utama, state aktif, atau sorotan data. Struktur memakai zinc dan permukaan muted.
 3. **Border-first.** Prioritaskan border 1px dan permukaan datar. Shadow hanya untuk lapisan mengambang seperti dialog, popover, dan dropdown.
-4. **Token semantik.** Gunakan `bg-primary`, `text-muted-foreground`, `border-border`; jangan pernah memakai warna mentah seperti `bg-lime-400` atau `text-emerald-600`.
+4. **Token semantik.** Gunakan `bg-primary`, `text-muted-foreground`, `border-border`; jangan pernah memakai warna mentah seperti `bg-zinc-900` atau `text-gray-500`.
 5. **Aksesibel sejak awal.** Fokus terlihat, kontras diuji, keyboard berfungsi, dan kegagalan kontras yang diketahui didokumentasikan di [Known gaps](#16-known-gaps).
 6. **Base UI.** Gunakan `render` untuk mengganti elemen, bukan `asChild`. Cek `base` dari `npx shadcn@latest info --json` sebelum menulis komposisi.
 
@@ -245,21 +245,21 @@ Karakter yang ingin dicapai: **produk yang padat, tenang, dan presisi, dengan sa
 
 ### 3.1 Metadata preset
 
-| Properti            | Nilai                                           |
-| ------------------- | ----------------------------------------------- |
-| Kode                | `b3QwSmPho`                                     |
-| Style               | `nova`                                          |
-| Base                | Base UI                                         |
-| Base color          | `zinc`                                          |
-| Theme               | `lime`                                          |
-| Chart color         | `lime`                                          |
-| Font preset         | `geist`                                         |
-| Font heading preset | `inherit`                                       |
-| Ikon                | `lucide`                                        |
-| Radius              | `default`                                       |
-| Menu color          | `default`                                       |
-| Menu accent         | `subtle`                                        |
-| URL builder         | <https://ui.shadcn.com/create?preset=b3QwSmPho> |
+| Properti            | Nilai                                          |
+| ------------------- | ---------------------------------------------- |
+| Kode                | `bcivVNCa`                                     |
+| Style               | `nova`                                         |
+| Base                | Base UI                                        |
+| Base color          | `zinc`                                         |
+| Theme               | `zinc`                                         |
+| Chart color         | `zinc`                                         |
+| Font preset         | `geist`                                        |
+| Font heading preset | `inherit`                                      |
+| Ikon                | `lucide`                                       |
+| Radius              | `default`                                      |
+| Menu color          | `default`                                      |
+| Menu accent         | `subtle`                                       |
+| URL builder         | <https://ui.shadcn.com/create?preset=bcivVNCa> |
 
 Kustomisasi lokal:
 
@@ -275,7 +275,7 @@ Kustomisasi lokal:
 
 ```bash
 # Melihat isi preset.
-npx shadcn@latest preset decode b3QwSmPho
+npx shadcn@latest preset decode bcivVNCa
 
 # Melihat preset yang terdeteksi pada workspace UI.
 npx shadcn@latest preset resolve -c packages/ui --json
@@ -290,8 +290,8 @@ npx shadcn@latest info --json -c apps/web
 - `packages/ui/src/styles/globals.css` adalah tempat token warna, font, radius, dan dark mode.
 - `packages/ui/src/components` adalah tempat komponen shadcn.
 - `apps/web` mengonsumsi UI lewat alias `@workspace/ui/*`.
-- `packages/ui/components.json` saat ini mencatat `baseColor: neutral`, sedangkan CSS dan preset memakai `zinc`. Ini adalah metadata yang stale. **Percayai CSS, bukan field tersebut.** Perbaiki hanya saat sengaja melakukan re-theme.
-- Menjalankan `npx shadcn@latest apply b3QwSmPho` akan menimpa token, termasuk `--font-heading` kembali ke `inherit`. Setelah apply, pasang ulang kustomisasi Bricolage.
+- Kedua `components.json` (`apps/web` dan `packages/ui`) mencatat `baseColor: zinc`, sama dengan CSS dan preset.
+- Menjalankan `npx shadcn@latest apply bcivVNCa` akan menimpa token, termasuk `--font-heading` kembali ke `inherit`. Setelah apply, pasang ulang kustomisasi Bricolage.
 
 ---
 
@@ -300,7 +300,7 @@ npx shadcn@latest info --json -c apps/web
 ### 4.1 Prinsip
 
 - **Zinc** adalah warna struktur: canvas, teks, border, permukaan.
-- **Lime** adalah warna aksi dan data. Jangan pakai lime untuk dekorasi acak.
+- **Zinc pekat** adalah warna aksi dan data. Tidak ada hue aksen terpisah; kontras yang membedakan aksi dari struktur.
 - **Merah** hanya untuk error/destructive.
 - **Border dan input** adalah garis struktural, bukan warna teks.
 - **Alpha** di dark mode dipakai untuk border dan input; jangan diganti dengan abu-abu solid.
@@ -316,8 +316,8 @@ npx shadcn@latest info --json -c apps/web
 | `card-foreground`            | `oklch(0.141 0.005 285.823)` · `#09090b` | `oklch(0.985 0 0)` · `#fafafa`           | `text-card-foreground`            | Teks di card            |
 | `popover`                    | `oklch(1 0 0)` · `#ffffff`               | `oklch(0.21 0.006 285.885)` · `#18181b`  | `bg-popover`                      | Panel mengambang        |
 | `popover-foreground`         | `oklch(0.141 0.005 285.823)` · `#09090b` | `oklch(0.985 0 0)` · `#fafafa`           | `text-popover-foreground`         | Teks di popover         |
-| `primary`                    | `oklch(0.841 0.238 128.85)` · `#9ae600`  | `oklch(0.768 0.233 130.85)` · `#7ccf00`  | `bg-primary`                      | Fill aksi utama         |
-| `primary-foreground`         | `oklch(0.405 0.101 131.063)` · `#35530e` | `oklch(0.405 0.101 131.063)` · `#35530e` | `text-primary-foreground`         | Teks di atas lime       |
+| `primary`                    | `oklch(0.21 0.006 285.885)` · `#18181b`  | `oklch(0.92 0.004 286.32)` · `#e4e4e7`   | `bg-primary`                      | Fill aksi utama         |
+| `primary-foreground`         | `oklch(0.985 0 0)` · `#fafafa`           | `oklch(0.21 0.006 285.885)` · `#18181b`  | `text-primary-foreground`         | Teks di atas primary    |
 | `secondary`                  | `oklch(0.967 0.001 286.375)` · `#f4f4f5` | `oklch(0.274 0.006 286.033)` · `#27272a` | `bg-secondary`                    | Permukaan sekunder      |
 | `secondary-foreground`       | `oklch(0.21 0.006 285.885)` · `#18181b`  | `oklch(0.985 0 0)` · `#fafafa`           | `text-secondary-foreground`       | Teks sekunder           |
 | `muted`                      | `oklch(0.967 0.001 286.375)` · `#f4f4f5` | `oklch(0.274 0.006 286.033)` · `#27272a` | `bg-muted`                        | Band/permukaan tenang   |
@@ -328,15 +328,15 @@ npx shadcn@latest info --json -c apps/web
 | `border`                     | `oklch(0.92 0.004 286.32)` · `#e4e4e7`   | `oklch(1 0 0 / 10%)` · `#ffffff` 10%     | `border-border`                   | Border struktural       |
 | `input`                      | `oklch(0.92 0.004 286.32)` · `#e4e4e7`   | `oklch(1 0 0 / 15%)` · `#ffffff` 15%     | `border-input`                    | Border field            |
 | `ring`                       | `oklch(0.705 0.015 286.067)` · `#9f9fa9` | `oklch(0.552 0.016 285.938)` · `#71717b` | `ring-ring`                       | Focus ring              |
-| `chart-1`                    | `oklch(0.897 0.196 126.665)` · `#bbf451` | sama                                     | `bg-chart-1`                      | Data viz terang         |
-| `chart-2`                    | `oklch(0.768 0.233 130.85)` · `#7ccf00`  | sama                                     | `bg-chart-2`                      | Data viz                |
-| `chart-3`                    | `oklch(0.648 0.2 131.684)` · `#5ea500`   | sama                                     | `bg-chart-3`                      | Data viz                |
-| `chart-4`                    | `oklch(0.532 0.157 131.589)` · `#497d00` | sama                                     | `bg-chart-4`                      | Data viz gelap          |
-| `chart-5`                    | `oklch(0.453 0.124 130.933)` · `#3c6300` | sama                                     | `bg-chart-5`                      | Data viz tergelap       |
+| `chart-1`                    | `oklch(0.871 0.006 286.286)` · `#d4d4d8` | sama                                     | `bg-chart-1`                      | Data viz terang         |
+| `chart-2`                    | `oklch(0.552 0.016 285.938)` · `#71717b` | sama                                     | `bg-chart-2`                      | Data viz                |
+| `chart-3`                    | `oklch(0.442 0.017 285.786)` · `#52525c` | sama                                     | `bg-chart-3`                      | Data viz                |
+| `chart-4`                    | `oklch(0.37 0.013 285.805)` · `#3f3f46`  | sama                                     | `bg-chart-4`                      | Data viz gelap          |
+| `chart-5`                    | `oklch(0.274 0.006 286.033)` · `#27272a` | sama                                     | `bg-chart-5`                      | Data viz tergelap       |
 | `sidebar`                    | `oklch(0.985 0 0)` · `#fafafa`           | `oklch(0.21 0.006 285.885)` · `#18181b`  | `bg-sidebar`                      | Rail navigasi           |
 | `sidebar-foreground`         | `oklch(0.141 0.005 285.823)` · `#09090b` | `oklch(0.985 0 0)` · `#fafafa`           | `text-sidebar-foreground`         | Teks sidebar            |
-| `sidebar-primary`            | `oklch(0.648 0.2 131.684)` · `#5ea500`   | `oklch(0.768 0.233 130.85)` · `#7ccf00`  | `bg-sidebar-primary`              | Aksi di sidebar         |
-| `sidebar-primary-foreground` | `oklch(0.986 0.031 120.757)` · `#f7fee7` | `oklch(0.274 0.072 132.109)` · `#192e03` | `text-sidebar-primary-foreground` | Teks di sidebar-primary |
+| `sidebar-primary`            | `oklch(0.21 0.006 285.885)` · `#18181b`  | `oklch(0.488 0.243 264.376)` · `#1447e6` | `bg-sidebar-primary`              | Aksi di sidebar         |
+| `sidebar-primary-foreground` | `oklch(0.985 0 0)` · `#fafafa`           | `oklch(0.985 0 0)` · `#fafafa`           | `text-sidebar-primary-foreground` | Teks di sidebar-primary |
 | `sidebar-accent`             | `oklch(0.967 0.001 286.375)` · `#f4f4f5` | `oklch(0.274 0.006 286.033)` · `#27272a` | `bg-sidebar-accent`               | Hover/aktif sidebar     |
 | `sidebar-accent-foreground`  | `oklch(0.21 0.006 285.885)` · `#18181b`  | `oklch(0.985 0 0)` · `#fafafa`           | `text-sidebar-accent-foreground`  | Teks di sidebar-accent  |
 | `sidebar-border`             | `oklch(0.92 0.004 286.32)` · `#e4e4e7`   | `oklch(1 0 0 / 10%)` · `#ffffff` 10%     | `border-sidebar-border`           | Border sidebar          |
@@ -346,52 +346,52 @@ npx shadcn@latest info --json -c apps/web
 
 Nilai dihitung dari OKLCH. Ambang WCAG: **4.5:1** untuk teks normal, **3:1** untuk teks besar dan komponen non-teks.
 
-| Pasangan                                         | Light |  Dark | Status                               |
-| ------------------------------------------------ | ----: | ----: | ------------------------------------ |
-| `foreground` / `background`                      | 19.89 | 19.05 | Lulus AAA                            |
-| `muted-foreground` / `background`                |  4.83 |  7.56 | Lulus AA                             |
-| `primary-foreground` / `primary`                 |  5.68 |  4.46 | Lulus (light); **borderline** (dark) |
-| `secondary-foreground` / `secondary`             | 16.11 | 14.26 | Lulus AAA                            |
-| `accent-foreground` / `accent`                   | 16.11 | 14.26 | Lulus AAA                            |
-| `destructive` / `background`                     |  4.76 |  6.88 | Lulus AA                             |
-| `sidebar-foreground` / `sidebar`                 | 19.05 | 16.98 | Lulus AAA                            |
-| `sidebar-primary-foreground` / `sidebar-primary` |  2.96 |  7.47 | **Gagal** (light); lulus (dark)      |
-| `primary` / `background`                         |  1.54 | 10.21 | Gagal sebagai teks; fill saja        |
-| `ring` / `background`                            |  2.63 |  4.12 | **Di bawah 3:1** (light)             |
+| Pasangan                                         | Light |  Dark | Status                       |
+| ------------------------------------------------ | ----: | ----: | ---------------------------- |
+| `foreground` / `background`                      | 19.89 | 19.05 | Lulus AAA                    |
+| `muted-foreground` / `background`                |  4.83 |  7.56 | Lulus AA                     |
+| `primary-foreground` / `primary`                 | 16.98 | 13.98 | Lulus AAA                    |
+| `secondary-foreground` / `secondary`             | 16.11 | 14.26 | Lulus AAA                    |
+| `accent-foreground` / `accent`                   | 16.11 | 14.26 | Lulus AAA                    |
+| `destructive` / `background`                     |  4.76 |  6.88 | Lulus AA                     |
+| `sidebar-foreground` / `sidebar`                 | 19.05 | 16.98 | Lulus AAA                    |
+| `sidebar-primary-foreground` / `sidebar-primary` | 16.98 |  6.54 | Lulus AAA (light); AA (dark) |
+| `primary` / `background`                         | 17.73 | 15.69 | Lulus AAA sebagai teks       |
+| `ring` / `background`                            |  2.63 |  4.12 | **Di bawah 3:1** (light)     |
 
 ### 4.4 Aturan pemakaian warna
 
-1. **Lime adalah fill, bukan teks.** `text-primary` di atas putih hanya 1.54:1. Gunakan `bg-primary text-primary-foreground` untuk tombol, atau `text-chart-4` / `text-foreground` untuk teks.
-2. **Varian `link` perlu perhatian.** `Button` varian `link` memakai `text-primary`; di light mode kontrasnya gagal. Untuk link teks, gunakan `text-foreground underline underline-offset-4` atau `text-chart-4`. Jika mempertahankan varian `link`, tambahkan underline dan uji di light mode.
-3. **Hindari `sidebar-primary` di light mode** untuk item navigasi berisi teks kecil. Kontras 2.96:1. Gunakan `sidebar-accent` + `sidebar-accent-foreground`, atau override `--sidebar-primary-foreground` menjadi hijau gelap.
-4. **`primary-foreground` di dark mode 4.46:1.** Untuk teks normal, ini sedikit di bawah AA. Gunakan untuk label tombol yang tebal/large, atau gelapkan `--primary-foreground` jika tombol lime dipakai untuk teks kecil.
+1. **Primary boleh jadi teks.** `text-primary` di atas putih 17.73:1 dan di atas canvas gelap 15.69:1, jadi aman untuk tautan dan label. Tetap gunakan `bg-primary text-primary-foreground` untuk tombol agar affordance jelas.
+2. **Varian `link` aman di kedua mode.** `Button` varian `link` memakai `text-primary` dan sekarang lulus AAA. Pertahankan underline saat hover agar link tidak bergantung pada warna saja.
+3. **`sidebar-primary` light mode aman.** Kontras 16.98:1. Di dark mode token ini bergeser ke biru `#1447e6` dengan teks `#fafafa` (6.54:1); jangan menganggapnya selalu zinc.
+4. **Primary dark mode adalah zinc terang.** `--primary` berubah dari `#18181b` (light) ke `#e4e4e7` (dark), dan teksnya berbalik menjadi `#18181b`. Jangan hardcode warna tombol.
 5. **Border bukan teks.** `border-border` dan `border-input` hanya untuk garis. Jangan memakainya sebagai warna teks atau ikon.
 6. **Dark mode memakai alpha.** Border 10% dan input 15% putih. Jangan menggantinya dengan `border-zinc-800`; alpha menjaga elevasi permukaan.
-7. **Jangan memakai warna mentah.** Tidak ada `bg-lime-400`, `text-emerald-600`, `border-gray-200`. Selalu token semantik.
+7. **Jangan memakai warna mentah.** Tidak ada `bg-zinc-900`, `text-gray-500`, `border-zinc-200`. Selalu token semantik.
 8. **Gunakan `cn()`** untuk penggabungan class kondisional; jangan menulis ternary template literal.
 
 ### 4.5 Warna data
 
 | Token     | Hex       | Kontras vs putih | Saran                                         |
 | --------- | --------- | ---------------: | --------------------------------------------- |
-| `chart-1` | `#bbf451` |             1.30 | Fill area/bar besar; jangan untuk garis tipis |
-| `chart-2` | `#7ccf00` |             1.96 | Bar/area; sertakan label                      |
-| `chart-3` | `#5ea500` |             3.06 | Garis minimal 2px; cukup untuk non-teks       |
-| `chart-4` | `#497d00` |             4.96 | Garis, teks data, sumbu                       |
-| `chart-5` | `#3c6300` |             7.05 | Teks data, garis tipis, kontras tinggi        |
+| `chart-1` | `#d4d4d8` |             1.48 | Fill area/bar besar; jangan untuk garis tipis |
+| `chart-2` | `#71717b` |             4.83 | Bar/area; sertakan label                      |
+| `chart-3` | `#52525c` |             7.73 | Garis minimal 2px; teks data                  |
+| `chart-4` | `#3f3f46` |            10.46 | Garis, teks data, sumbu                       |
+| `chart-5` | `#27272a` |            14.89 | Teks data, garis tipis, kontras tinggi        |
 
 Aturan:
 
 - Jangan mengandalkan warna saja. Tambahkan label, pola, atau bentuk berbeda.
-- Untuk line chart di light mode, prioritaskan `chart-4` atau `chart-5`.
-- Untuk bar/area, `chart-1`–`chart-3` boleh, tetapi beri label nilai dan sumbu yang jelas.
+- Untuk line chart di light mode, prioritaskan `chart-3`, `chart-4`, atau `chart-5`.
+- Untuk bar/area, `chart-1` dan `chart-2` boleh sebagai fill, tetapi beri label nilai dan sumbu yang jelas.
 - Di dark mode, semua chart tetap memakai nilai yang sama; uji ulang karena latar berubah.
 
 ### 4.6 Do & Don't warna
 
 | Do                                               | Don't                         |
 | ------------------------------------------------ | ----------------------------- |
-| `bg-primary text-primary-foreground`             | `bg-[#9ae600] text-[#35530e]` |
+| `bg-primary text-primary-foreground`             | `bg-[#18181b] text-[#fafafa]` |
 | `text-muted-foreground` untuk deskripsi          | `text-gray-500`               |
 | `border-border` untuk garis                      | `border-zinc-200`             |
 | `bg-destructive/10 text-destructive` untuk error | `bg-red-100 text-red-600`     |
@@ -675,14 +675,14 @@ Komponen akan mendarat di `packages/ui/src/components`. Setelah add, baca file h
 
 **Varian**
 
-| Varian        | Karakter                     | Pemakaian                                    |
-| ------------- | ---------------------------- | -------------------------------------------- |
-| `default`     | Lime fill + teks hijau gelap | Aksi utama, satu per area                    |
-| `outline`     | Border + background          | Aksi sekunder di atas canvas                 |
-| `secondary`   | Abu netral                   | Aksi sekunder di dalam card/toolbar          |
-| `ghost`       | Tanpa fill sampai hover      | Aksi tersier, item menu, toolbar             |
-| `destructive` | Merah tinted                 | Hapus/reset; konfirmasi dengan `AlertDialog` |
-| `link`        | Teks + underline saat hover  | Navigasi teks; waspadai kontras light mode   |
+| Varian        | Karakter                    | Pemakaian                                    |
+| ------------- | --------------------------- | -------------------------------------------- |
+| `default`     | Zinc pekat + teks terang    | Aksi utama, satu per area                    |
+| `outline`     | Border + background         | Aksi sekunder di atas canvas                 |
+| `secondary`   | Abu netral                  | Aksi sekunder di dalam card/toolbar          |
+| `ghost`       | Tanpa fill sampai hover     | Aksi tersier, item menu, toolbar             |
+| `destructive` | Merah tinted                | Hapus/reset; konfirmasi dengan `AlertDialog` |
+| `link`        | Teks + underline saat hover | Navigasi teks; waspadai kontras light mode   |
 
 **Ukuran**
 
@@ -977,7 +977,7 @@ Checklist sebelum merge:
 | Do                                        | Don't                                      |
 | ----------------------------------------- | ------------------------------------------ |
 | Gunakan `Button` dengan varian yang tepat | Membuat `div` yang terlihat seperti tombol |
-| `bg-primary text-primary-foreground`      | `bg-lime-400 text-lime-900`                |
+| `bg-primary text-primary-foreground`      | `bg-zinc-900 text-zinc-50`                 |
 | `FieldGroup` + `Field`                    | `div` + `space-y-4` untuk form             |
 | `DialogTitle` wajib ada                   | Dialog tanpa title                         |
 | `Skeleton` untuk loading                  | `div animate-pulse`                        |
@@ -993,18 +993,16 @@ Checklist sebelum merge:
 
 ## 16. Known gaps
 
-1. **Metadata `baseColor` tidak sinkron.** `packages/ui/components.json` mencatat `neutral`, sedangkan CSS dan preset memakai `zinc`. Jangan mengandalkan field tersebut.
-2. **Varian `link` gagal kontras di light mode.** `text-primary` = 1.54:1 di atas putih. Gunakan underline + warna yang lebih gelap, atau perbaiki varian.
-3. **`sidebar-primary` gagal kontras di light mode.** `sidebar-primary-foreground` = 2.96:1 di atas `sidebar-primary`. Hindari untuk teks kecil; gunakan `sidebar-accent`.
-4. **`primary-foreground` dark mode 4.46:1.** Sedikit di bawah AA untuk teks normal. Gunakan untuk label tebal/large atau sesuaikan token.
-5. **Focus ring light mode 2.63:1.** Di bawah 3:1 untuk indikator fokus. Uji dan pertimbangkan ring yang lebih gelap/tebal.
-6. **Chart-1 dan chart-2 rendah kontras di atas putih.** Gunakan chart-4/chart-5 untuk garis dan teks data.
-7. **Belum ada font mono.** Gunakan system mono untuk kode; pertimbangkan Geist Mono jika konsistensi dibutuhkan.
-8. **Belum ada utility tipe `type-*`.** Skala tipografi adalah rekomendasi; penerapannya lewat kelas Tailwind.
-9. **Tidak semua komponen memakai `font-heading`.** Tambahkan class secara eksplisit pada judul.
-10. **Belum ada design system page/visual regression.** Kontras dan tampilan belum diuji otomatis.
-11. **Override Bricolage tidak tersimpan di preset.** `apply b3QwSmPho` akan mengembalikan `--font-heading` ke `inherit`; pasang ulang setelah apply.
-12. **Border/input dark mode memakai alpha.** Di beberapa layar alpha 10% bisa terlalu tipis; uji di monitor nyata.
+1. **Focus ring light mode 2.63:1.** Di bawah 3:1 untuk indikator fokus. Uji dan pertimbangkan ring yang lebih gelap/tebal.
+2. **Chart-1 rendah kontras di atas putih (1.48:1).** Gunakan chart-1 hanya sebagai fill area/bar besar, bukan garis tipis atau teks.
+3. **`sidebar-primary` dark mode bukan zinc.** Preset memberi `#1447e6` (biru) di dark mode, berbeda dari aksi utama zinc. Ini quirk preset; override jika ingin sidebar sepenuhnya monokrom.
+4. **Belum ada font mono.** Gunakan system mono untuk kode; pertimbangkan Geist Mono jika konsistensi dibutuhkan.
+5. **Belum ada utility tipe `type-*`.** Skala tipografi adalah rekomendasi; penerapannya lewat kelas Tailwind.
+6. **Tidak semua komponen memakai `font-heading`.** Tambahkan class secara eksplisit pada judul.
+7. **Belum ada design system page/visual regression.** Kontras dan tampilan belum diuji otomatis.
+8. **Override Bricolage tidak tersimpan di preset.** `apply bcivVNCa` akan mengembalikan `--font-heading` ke `inherit`; pasang ulang setelah apply.
+9. **Border/input dark mode memakai alpha.** Di beberapa layar alpha 10% bisa terlalu tipis; uji di monitor nyata.
+10. **CSS membesar setelah semua komponen terpasang.** Tailwind memindai 63 file komponen; build CSS sekitar 215KB. Optimalkan dengan `@source` yang lebih sempit jika perlu.
 
 ---
 

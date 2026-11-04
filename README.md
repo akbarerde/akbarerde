@@ -2,7 +2,7 @@
 
 # ERDE
 
-**The akbarerde starter — a compact, lime-accented TanStack Start monorepo powered by shadcn/ui.**
+**The akbarerde starter — a compact, zinc-accented TanStack Start monorepo powered by shadcn/ui.**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=06181f)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -24,7 +24,7 @@
 
 `akbarerde` is a pnpm + Turborepo monorepo for building the ERDE interface. It pairs **TanStack Start** for SSR and file-based routing with a shared **shadcn/ui** package, so every app uses the same components and design tokens.
 
-The current starter is deliberately minimal: a single centered **ERDE** heading on a lime canvas. The visual system behind it lives in [`docs/DESIGN.md`](./docs/DESIGN.md).
+The current starter is deliberately minimal: a single centered **ERDE** heading on a zinc primary surface. The visual system behind it lives in [`docs/DESIGN.md`](./docs/DESIGN.md).
 
 ## Tech stack
 
@@ -56,7 +56,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The starter page renders a single `ERDE` heading centered on the lime accent color.
+Open [http://localhost:3000](http://localhost:3000). The starter page renders a single `ERDE` heading centered on the zinc primary surface.
 
 To run only the web app:
 
@@ -97,19 +97,19 @@ akbarerde/
 
 ## Design system
 
-The full design system is documented in [`docs/DESIGN.md`](./docs/DESIGN.md). It covers the `b3QwSmPho` shadcn/ui preset, light/dark tokens, typography, component rules, accessibility, and known gaps.
+The full design system is documented in [`docs/DESIGN.md`](./docs/DESIGN.md). It covers the `bcivVNCa` shadcn/ui preset, light/dark tokens, typography, component rules, accessibility, and known gaps.
 
 | Role        | Token                  | Value                        |
 | ----------- | ---------------------- | ---------------------------- |
 | Canvas      | `--background`         | `oklch(1 0 0)`               |
 | Ink         | `--foreground`         | `oklch(0.141 0.005 285.823)` |
-| Accent      | `--primary`            | `oklch(0.841 0.238 128.85)`  |
-| Accent text | `--primary-foreground` | `oklch(0.405 0.101 131.063)` |
+| Accent      | `--primary`            | `oklch(0.21 0.006 285.885)`  |
+| Accent text | `--primary-foreground` | `oklch(0.985 0 0)`           |
 | Radius      | `--radius`             | `0.625rem`                   |
 | Body        | `--font-sans`          | Geist Variable               |
 | Heading     | `--font-heading`       | Bricolage Grotesque Variable |
 
-Lime is a fill color, not a text color. The contrast rules and known gaps — including the `link` variant and `sidebar-primary` in light mode — are documented in `DESIGN.md`.
+The zinc preset is monochrome: `--primary` is near-black in light mode and near-white in dark mode, so primary text passes contrast in both themes. The remaining gaps — the light-mode focus ring and low-contrast `chart-1` — are documented in `DESIGN.md`.
 
 ### Adding shadcn/ui components
 

@@ -50,7 +50,9 @@ function getHighlighter() {
   return highlighter
 }
 
-function getLanguage(language: string): keyof typeof languages | "ansi" | null {
+function getLanguage(
+  language: string
+): keyof typeof languages | "ansi" | null {
   const name = language.toLowerCase()
 
   if (name === "ansi") {
