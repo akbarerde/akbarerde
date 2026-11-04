@@ -2183,12 +2183,9 @@ export function ComponentGallery() {
       </main>
 
       <footer className="border-t">
-        <div className="mx-auto w-full max-w-6xl px-4 py-6 text-sm text-muted-foreground sm:px-6 lg:px-8">
-          <p>
-            63 components from{" "}
-            <code className="font-mono text-xs">@workspace/ui</code>, themed
-            with the <code className="font-mono text-xs">nova</code> style and{" "}
-            <code className="font-mono text-xs">zinc</code> base color.
+        <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+          <p className="font-heading text-sm font-medium tracking-tight text-foreground">
+            Making coolsh*t that performs
           </p>
         </div>
       </footer>
