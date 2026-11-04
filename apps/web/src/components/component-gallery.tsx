@@ -42,6 +42,7 @@ import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 import { cn } from "@workspace/ui/lib/utils"
 
 import { ScrollProgress, SectionNav } from "@/components/gallery-motion"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 import {
   Accordion,
@@ -535,21 +536,24 @@ export function ComponentGallery() {
       <ScrollProgress />
 
       <main className="mx-auto flex w-full max-w-6xl flex-col px-4 py-10 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-2 border-b pb-6">
-          <div className="flex flex-wrap items-center gap-3">
-            <h1 className="font-heading text-3xl font-semibold tracking-tight">
-              Components
-            </h1>
-            <Badge variant="secondary">63 components</Badge>
+        <div className="flex items-start justify-between gap-4 border-b pb-6">
+          <div className="flex min-w-0 flex-col gap-2">
+            <div className="flex flex-wrap items-center gap-3">
+              <h1 className="font-heading text-3xl font-semibold tracking-tight">
+                Components
+              </h1>
+              <Badge variant="secondary">63 components</Badge>
+            </div>
+            <p className="max-w-2xl text-sm text-pretty text-muted-foreground sm:text-base">
+              Every component installed in{" "}
+              <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground">
+                @workspace/ui
+              </code>
+              , rendered with the default shadcn/ui styles. Each demo is
+              interactive and uses the same source files as the app.
+            </p>
           </div>
-          <p className="max-w-2xl text-sm text-pretty text-muted-foreground sm:text-base">
-            Every component installed in{" "}
-            <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground">
-              @workspace/ui
-            </code>
-            , rendered with the default shadcn/ui styles. Each demo is
-            interactive and uses the same source files as the app.
-          </p>
+          <ThemeToggle />
         </div>
 
         <SectionNav sections={sections} />
@@ -2183,10 +2187,18 @@ export function ComponentGallery() {
       </main>
 
       <footer className="border-t">
-        <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6 sm:px-6 lg:px-8">
           <p className="font-heading text-sm font-medium tracking-tight text-foreground">
             Making coolsh*t that performs
           </p>
+          <a
+            href="https://ui.shadcn.com"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          >
+            Built with shadcn/ui
+          </a>
         </div>
       </footer>
 

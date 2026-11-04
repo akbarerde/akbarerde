@@ -304,6 +304,7 @@ npx shadcn@latest info --json -c apps/web
 - **Merah** hanya untuk error/destructive.
 - **Border dan input** adalah garis struktural, bukan warna teks.
 - **Alpha** di dark mode dipakai untuk border dan input; jangan diganti dengan abu-abu solid.
+- **Toggle dark mode** di kanan atas halaman Components menyimpan pilihan di `localStorage` (`theme`); tanpa pilihan, tema mengikuti `prefers-color-scheme`.
 - Semua warna di bawah ditulis dalam OKLCH (sumber) dan hex sRGB (perkiraan untuk desain/QA).
 
 ### 4.2 Token warna

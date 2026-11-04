@@ -3,6 +3,8 @@ import { TooltipProvider } from "@workspace/ui/components/tooltip"
 
 import appCss from "@workspace/ui/globals.css?url"
 
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");var d=t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d)}catch(e){}})()`
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -35,8 +37,9 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <HeadContent />
       </head>
       <body>
