@@ -208,7 +208,7 @@ Dokumen ini adalah acuan visual dan interaksi untuk antarmuka Akbarerde. Fondasi
 
 Sumber kebenaran token adalah [`packages/ui/src/styles/globals.css`](../packages/ui/src/styles/globals.css). Dokumen ini menjelaskan cara memakai token tersebut, bukan menggantikannya. Jika ada perbedaan antara dokumen dan CSS, CSS menang.
 
-> **Status implementasi:** baru komponen `Button` yang terpasang di `packages/ui/src/components`. Komponen lain dalam dokumen ini adalah standar yang harus diikuti saat ditambahkan, belum tentu sudah ada di repo.
+> **Status implementasi:** seluruh komponen shadcn/ui untuk preset ini sudah terpasang di `packages/ui/src/components` lewat `shadcn add --all`. Komponen dalam dokumen ini adalah standar yang harus diikuti saat memakainya.
 
 ---
 
@@ -651,15 +651,17 @@ Prinsip: **border-first.** Shadow tidak boleh menjadi satu-satunya pembeda permu
 
 ### 10.1 Inventaris
 
-| Komponen                                                                            | Status    | Catatan                        |
-| ----------------------------------------------------------------------------------- | --------- | ------------------------------ |
-| `Button`                                                                            | Terpasang | Satu-satunya komponen saat ini |
-| `Input`, `Textarea`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `Label`, `Field` | Via CLI   | Standar form                   |
-| `Card`, `Badge`, `Table`, `Avatar`, `Skeleton`, `Empty`                             | Via CLI   | Surface & data                 |
-| `Tabs`, `Breadcrumb`, `Sidebar`, `Pagination`, `Command`                            | Via CLI   | Navigasi                       |
-| `Dialog`, `Sheet`, `Drawer`, `AlertDialog`, `Popover`, `Tooltip`, `DropdownMenu`    | Via CLI   | Overlay & menu                 |
-| `Alert`, `Progress`, `Spinner`, `Sonner`/`toast`                                    | Via CLI   | Feedback                       |
-| `Chart`                                                                             | Via CLI   | Data viz                       |
+| Komponen                                                                            | Status    | Catatan        |
+| ----------------------------------------------------------------------------------- | --------- | -------------- |
+| `Button`                                                                            | Terpasang | Komponen dasar |
+| `Input`, `Textarea`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `Label`, `Field` | Terpasang | Standar form   |
+| `Card`, `Badge`, `Table`, `Avatar`, `Skeleton`, `Empty`                             | Terpasang | Surface & data |
+| `Tabs`, `Breadcrumb`, `Sidebar`, `Pagination`, `Command`                            | Terpasang | Navigasi       |
+| `Dialog`, `Sheet`, `Drawer`, `AlertDialog`, `Popover`, `Tooltip`, `DropdownMenu`    | Terpasang | Overlay & menu |
+| `Alert`, `Progress`, `Spinner`, `Sonner`/`toast`                                    | Terpasang | Feedback       |
+| `Chart`                                                                             | Terpasang | Data viz       |
+
+Total ada **63 file komponen** di `packages/ui/src/components`. Item `form` tidak menghasilkan file terpisah karena registry Base UI mengarahkannya ke `Field`.
 
 Tambahkan komponen dari root:
 
@@ -991,19 +993,18 @@ Checklist sebelum merge:
 
 ## 16. Known gaps
 
-1. **Hanya `Button` yang terpasang.** Komponen lain di dokumen ini belum ada di repo; tambahkan lewat CLI sebelum dipakai.
-2. **Metadata `baseColor` tidak sinkron.** `packages/ui/components.json` mencatat `neutral`, sedangkan CSS dan preset memakai `zinc`. Jangan mengandalkan field tersebut.
-3. **Varian `link` gagal kontras di light mode.** `text-primary` = 1.54:1 di atas putih. Gunakan underline + warna yang lebih gelap, atau perbaiki varian.
-4. **`sidebar-primary` gagal kontras di light mode.** `sidebar-primary-foreground` = 2.96:1 di atas `sidebar-primary`. Hindari untuk teks kecil; gunakan `sidebar-accent`.
-5. **`primary-foreground` dark mode 4.46:1.** Sedikit di bawah AA untuk teks normal. Gunakan untuk label tebal/large atau sesuaikan token.
-6. **Focus ring light mode 2.63:1.** Di bawah 3:1 untuk indikator fokus. Uji dan pertimbangkan ring yang lebih gelap/tebal.
-7. **Chart-1 dan chart-2 rendah kontras di atas putih.** Gunakan chart-4/chart-5 untuk garis dan teks data.
-8. **Belum ada font mono.** Gunakan system mono untuk kode; pertimbangkan Geist Mono jika konsistensi dibutuhkan.
-9. **Belum ada utility tipe `type-*`.** Skala tipografi adalah rekomendasi; penerapannya lewat kelas Tailwind.
-10. **Tidak semua komponen memakai `font-heading`.** Tambahkan class secara eksplisit pada judul.
-11. **Belum ada design system page/visual regression.** Kontras dan tampilan belum diuji otomatis.
-12. **Override Bricolage tidak tersimpan di preset.** `apply b3QwSmPho` akan mengembalikan `--font-heading` ke `inherit`; pasang ulang setelah apply.
-13. **Border/input dark mode memakai alpha.** Di beberapa layar alpha 10% bisa terlalu tipis; uji di monitor nyata.
+1. **Metadata `baseColor` tidak sinkron.** `packages/ui/components.json` mencatat `neutral`, sedangkan CSS dan preset memakai `zinc`. Jangan mengandalkan field tersebut.
+2. **Varian `link` gagal kontras di light mode.** `text-primary` = 1.54:1 di atas putih. Gunakan underline + warna yang lebih gelap, atau perbaiki varian.
+3. **`sidebar-primary` gagal kontras di light mode.** `sidebar-primary-foreground` = 2.96:1 di atas `sidebar-primary`. Hindari untuk teks kecil; gunakan `sidebar-accent`.
+4. **`primary-foreground` dark mode 4.46:1.** Sedikit di bawah AA untuk teks normal. Gunakan untuk label tebal/large atau sesuaikan token.
+5. **Focus ring light mode 2.63:1.** Di bawah 3:1 untuk indikator fokus. Uji dan pertimbangkan ring yang lebih gelap/tebal.
+6. **Chart-1 dan chart-2 rendah kontras di atas putih.** Gunakan chart-4/chart-5 untuk garis dan teks data.
+7. **Belum ada font mono.** Gunakan system mono untuk kode; pertimbangkan Geist Mono jika konsistensi dibutuhkan.
+8. **Belum ada utility tipe `type-*`.** Skala tipografi adalah rekomendasi; penerapannya lewat kelas Tailwind.
+9. **Tidak semua komponen memakai `font-heading`.** Tambahkan class secara eksplisit pada judul.
+10. **Belum ada design system page/visual regression.** Kontras dan tampilan belum diuji otomatis.
+11. **Override Bricolage tidak tersimpan di preset.** `apply b3QwSmPho` akan mengembalikan `--font-heading` ke `inherit`; pasang ulang setelah apply.
+12. **Border/input dark mode memakai alpha.** Di beberapa layar alpha 10% bisa terlalu tipis; uji di monitor nyata.
 
 ---
 

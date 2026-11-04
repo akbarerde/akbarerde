@@ -147,7 +147,7 @@ The web build is written to `apps/web/dist`. No deployment target is configured 
 - [x] Bricolage Grotesque heading font
 - [x] ERDE starter page
 - [x] Design system documentation
-- [ ] Add the remaining shadcn/ui components
+- [x] Install all shadcn/ui components
 - [ ] Resolve the known contrast gaps in `DESIGN.md`
 - [ ] Add CI for lint, typecheck, and build
 - [ ] Add a license
