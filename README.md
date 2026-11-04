@@ -24,7 +24,7 @@
 
 `akbarerde` is a pnpm + Turborepo monorepo for building the ERDE interface. It pairs **TanStack Start** for SSR and file-based routing with a shared **shadcn/ui** package, so every app uses the same components and design tokens.
 
-The current starter is deliberately minimal: a single centered **ERDE** heading on a zinc primary surface. The visual system behind it lives in [`docs/DESIGN.md`](./docs/DESIGN.md).
+The starter includes a gallery at [`/components`](http://localhost:3000/components) that renders every installed shadcn/ui component with live, interactive examples. The visual system behind it lives in [`docs/DESIGN.md`](./docs/DESIGN.md).
 
 ## Tech stack
 
@@ -56,7 +56,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). The starter page renders a single `ERDE` heading centered on the zinc primary surface.
+Open [http://localhost:3000](http://localhost:3000). The home page links to `/components`, where all 63 components are rendered with live examples.
 
 To run only the web app:
 
@@ -148,6 +148,7 @@ The web build is written to `apps/web/dist`. No deployment target is configured 
 - [x] ERDE starter page
 - [x] Design system documentation
 - [x] Install all shadcn/ui components
+- [x] Component gallery at `/components`
 - [ ] Resolve the known contrast gaps in `DESIGN.md`
 - [ ] Add CI for lint, typecheck, and build
 - [ ] Add a license
