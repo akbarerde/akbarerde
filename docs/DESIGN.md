@@ -650,7 +650,7 @@ Prinsip: **border-first.** Shadow tidak boleh menjadi satu-satunya pembeda permu
 - Library: [`motion`](https://motion.dev) (`motion/react`), hanya dipakai di `apps/web`.
 - `MotionConfig reducedMotion="user"` membungkus route gallery; entrance kartu mengikuti preferensi pengguna.
 - Nav seksi memakai pill geser (`layoutId`) dan scroll-spy; klik nav memakai smooth scroll, atau instan saat `useReducedMotion` aktif.
-- Garis progres tipis di bawah header mengikuti posisi scroll.
+- Garis progres tipis di bagian atas viewport mengikuti posisi scroll.
 - Kartu demo mendapat spotlight border yang mengikuti pointer (hover/focus), tanpa mengubah layout.
 - Entrance satu kali hanya untuk seksi pertama, memakai transform `y` 12px → 0; konten tetap terlihat tanpa JavaScript.
 - Animasi tidak boleh menutupi konten, menunda aksi, atau berulang setiap seksi.

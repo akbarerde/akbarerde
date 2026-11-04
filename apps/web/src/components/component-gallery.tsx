@@ -532,36 +532,7 @@ export function ComponentGallery() {
 
   return (
     <div className="min-h-svh bg-background">
-      <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto flex h-14 w-full max-w-6xl items-center gap-4 px-4 sm:px-6 lg:px-8">
-          <a
-            href="/"
-            className="font-heading text-sm font-semibold tracking-tight"
-          >
-            ERDE
-          </a>
-          <Separator orientation="vertical" className="h-4" />
-          <nav className="flex items-center gap-4 text-sm">
-            <a
-              href="/components"
-              aria-current="page"
-              className="font-medium text-foreground"
-            >
-              Components
-            </a>
-            <a
-              href="/"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Home
-            </a>
-          </nav>
-          <Badge variant="outline" className="ml-auto font-mono">
-            63
-          </Badge>
-        </div>
-        <ScrollProgress />
-      </header>
+      <ScrollProgress />
 
       <main className="mx-auto flex w-full max-w-6xl flex-col px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-2 border-b pb-6">

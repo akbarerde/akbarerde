@@ -45,7 +45,7 @@ export function ScrollProgress() {
   return (
     <motion.div
       aria-hidden="true"
-      className="absolute inset-x-0 -bottom-px h-px origin-left bg-foreground/30"
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 h-px origin-left bg-foreground/30"
       style={{ scaleX: reduceMotion ? scrollYProgress : smoothProgress }}
     />
   )
@@ -74,7 +74,7 @@ export function SectionNav({ sections }: { sections: readonly SectionLink[] }) {
   return (
     <nav
       aria-label="Component sections"
-      className="sticky top-14 z-30 -mx-4 flex gap-1 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur-sm sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+      className="sticky top-0 z-30 -mx-4 flex gap-1 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur-sm sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
     >
       {sections.map((section) => {
         const isActive = active === section.id
@@ -115,7 +115,7 @@ function useActiveSection(sections: readonly SectionLink[]) {
 
     const update = () => {
       frame = 0
-      const marker = window.scrollY + 176
+      const marker = window.scrollY + 120
       let current = sections[0]?.id ?? ""
 
       for (const section of sections) {
