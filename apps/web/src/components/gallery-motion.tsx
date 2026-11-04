@@ -74,7 +74,7 @@ export function SectionNav({ sections }: { sections: readonly SectionLink[] }) {
   return (
     <nav
       aria-label="Component sections"
-      className="sticky top-0 z-30 -mx-4 flex gap-1 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur-sm sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
+      className="sticky top-0 z-30 flex gap-1 overflow-x-auto border-b bg-background/95 py-2 backdrop-blur-sm"
     >
       {sections.map((section) => {
         const isActive = active === section.id
