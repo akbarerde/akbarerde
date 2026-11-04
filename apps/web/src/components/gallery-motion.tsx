@@ -54,6 +54,35 @@ export function ScrollProgress() {
 export function SectionNav({ sections }: { sections: readonly SectionLink[] }) {
   const [active, setActive] = useActiveSection(sections)
   const reduceMotion = useReducedMotion()
+  const navRef = React.useRef<HTMLElement | null>(null)
+
+  React.useEffect(() => {
+    const nav = navRef.current
+    const activeLink = nav?.querySelector<HTMLElement>(
+      'a[aria-current="location"]'
+    )
+    if (!nav || !activeLink) return
+
+    const navRect = nav.getBoundingClientRect()
+    const linkRect = activeLink.getBoundingClientRect()
+    const edge = 12
+    const isVisible =
+      linkRect.left >= navRect.left + edge &&
+      linkRect.right <= navRect.right - edge
+
+    if (isVisible) return
+
+    const targetLeft =
+      nav.scrollLeft +
+      linkRect.left -
+      navRect.left -
+      (navRect.width - linkRect.width) / 2
+
+    nav.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: reduceMotion ? "auto" : "smooth",
+    })
+  }, [active, reduceMotion])
 
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -73,8 +102,9 @@ export function SectionNav({ sections }: { sections: readonly SectionLink[] }) {
 
   return (
     <nav
+      ref={navRef}
       aria-label="Component sections"
-      className="sticky top-0 z-30 flex gap-1 overflow-x-auto border-b bg-background/95 py-2 backdrop-blur-sm"
+      className="sticky top-0 z-30 flex [scrollbar-width:none] gap-1 overflow-x-auto border-b bg-background/95 py-2 backdrop-blur-sm [&::-webkit-scrollbar]:hidden"
     >
       {sections.map((section) => {
         const isActive = active === section.id
