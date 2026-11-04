@@ -20,6 +20,7 @@
     "@tanstack/react-start": "latest",
     "@workspace/ui": "workspace:*",
     "lucide-react": "^1.66.0",
+    "motion": "^14.9.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "recharts": "3.8.0",

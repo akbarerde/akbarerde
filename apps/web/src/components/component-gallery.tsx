@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { motion } from "motion/react"
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -39,6 +40,8 @@ import {
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import { cn } from "@workspace/ui/lib/utils"
+
+import { ScrollProgress, SectionNav } from "@/components/gallery-motion"
 
 import {
   Accordion,
@@ -505,7 +508,7 @@ const questions = [
       { value: "product" },
     ],
   },
-  { name: "team", required: true },
+  { name: "team" },
 ] as const
 
 const scrollerMessages = [
@@ -557,6 +560,7 @@ export function ComponentGallery() {
             63
           </Badge>
         </div>
+        <ScrollProgress />
       </header>
 
       <main className="mx-auto flex w-full max-w-6xl flex-col px-4 py-10 sm:px-6 lg:px-8">
@@ -577,23 +581,10 @@ export function ComponentGallery() {
           </p>
         </div>
 
-        <nav
-          aria-label="Component sections"
-          className="sticky top-14 z-30 -mx-4 flex gap-1 overflow-x-auto border-b bg-background/95 px-4 py-2 backdrop-blur-sm sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
-        >
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className="shrink-0 rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              {section.title}
-            </a>
-          ))}
-        </nav>
+        <SectionNav sections={sections} />
 
         <div className="flex flex-col gap-16 pt-10">
-          <Section section={sections[0]}>
+          <Section section={sections[0]} entrance>
             <Demo
               title="Button"
               description="Six variants and seven sizes with icon support."
@@ -1250,7 +1241,12 @@ export function ComponentGallery() {
               title="Command"
               description="Searchable command palette in place."
             >
-              <Command className="h-64 rounded-lg border">
+              {/* A non-existent default stops cmdk from selecting an item and
+                  scrolling the page on mount. */}
+              <Command
+                className="h-64 rounded-lg border"
+                defaultValue="__none__"
+              >
                 <CommandInput placeholder="Type a command or search…" />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -2234,9 +2230,11 @@ export function ComponentGallery() {
 function Section({
   section,
   children,
+  entrance = false,
 }: {
   section: (typeof sections)[number]
   children: React.ReactNode
+  entrance?: boolean
 }) {
   return (
     <section id={section.id} className="scroll-mt-28">
@@ -2250,11 +2248,29 @@ function Section({
         <p className="text-sm text-muted-foreground">{section.description}</p>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {children}
+        {React.Children.map(children, (child, index) =>
+          React.isValidElement<DemoProps>(child)
+            ? React.cloneElement(
+                child,
+                entrance ? { entranceIndex: index } : {}
+              )
+            : child
+        )}
       </div>
     </section>
   )
 }
+
+type DemoProps = {
+  title: string
+  description: string
+  className?: string
+  bodyClassName?: string
+  children: React.ReactNode
+  entranceIndex?: number
+}
+
+const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 function Demo({
   title,
@@ -2262,27 +2278,76 @@ function Demo({
   className,
   bodyClassName,
   children,
-}: {
-  title: string
-  description: string
-  className?: string
-  bodyClassName?: string
-  children: React.ReactNode
-}) {
+  entranceIndex,
+}: DemoProps) {
+  const hasEntrance = entranceIndex !== undefined
+
+  const handleSpotlight = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === "touch") return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    event.currentTarget.style.setProperty(
+      "--spotlight-x",
+      `${event.clientX - bounds.left}px`
+    )
+    event.currentTarget.style.setProperty(
+      "--spotlight-y",
+      `${event.clientY - bounds.top}px`
+    )
+  }
+
   return (
-    <Card className={cn("min-w-0", className)}>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent
-        className={cn(
-          "flex min-w-0 flex-1 flex-col justify-center gap-3",
-          bodyClassName
-        )}
-      >
-        {children}
-      </CardContent>
-    </Card>
+    <motion.div
+      initial={hasEntrance ? { y: 12 } : false}
+      animate={hasEntrance ? { y: 0 } : undefined}
+      transition={
+        hasEntrance
+          ? {
+              duration: 0.5,
+              delay: Math.min(entranceIndex * 0.04, 0.3),
+              ease: easeOut,
+            }
+          : undefined
+      }
+      onPointerMove={handleSpotlight}
+      className={cn("group/demo relative min-w-0", className)}
+    >
+      <Card className="h-full transition-shadow duration-300 group-focus-within/demo:ring-foreground/20 group-hover/demo:ring-foreground/20 motion-reduce:transition-none">
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
+        </CardHeader>
+        <CardContent
+          className={cn(
+            "flex min-w-0 flex-1 flex-col justify-center gap-3",
+            bodyClassName
+          )}
+        >
+          {children}
+        </CardContent>
+      </Card>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-focus-within/demo:opacity-100 group-hover/demo:opacity-100 motion-reduce:transition-none"
+        style={{
+          background:
+            "radial-gradient(260px circle at var(--spotlight-x, 50%) var(--spotlight-y, 0%), color-mix(in oklab, var(--foreground) 45%, transparent), transparent 68%)",
+          padding: "1px",
+          WebkitMask:
+            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+          WebkitMaskComposite: "xor",
+          maskImage:
+            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+          maskComposite: "exclude",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-focus-within/demo:opacity-100 group-hover/demo:opacity-100 motion-reduce:transition-none"
+        style={{
+          background:
+            "radial-gradient(260px circle at var(--spotlight-x, 50%) var(--spotlight-y, 0%), color-mix(in oklab, var(--foreground) 5%, transparent), transparent 65%)",
+        }}
+      />
+    </motion.div>
   )
 }

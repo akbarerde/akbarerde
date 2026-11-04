@@ -34,6 +34,7 @@ The starter includes a gallery at [`/components`](http://localhost:3000/componen
 | UI            | [React 19](https://react.dev)                                                                  |                                                      |
 | Language      | [TypeScript 6](https://www.typescriptlang.org)                                                 | Strict mode                                          |
 | Styling       | [Tailwind CSS v4](https://tailwindcss.com)                                                     | CSS-first theme tokens                               |
+| Motion        | [Motion](https://motion.dev)                                                                   | Gallery interactions, reduced-motion aware           |
 | Components    | [shadcn/ui](https://ui.shadcn.com) Nova + [Base UI](https://base-ui.com)                       | Shared in `packages/ui`                              |
 | Icons         | [Lucide](https://lucide.dev)                                                                   |                                                      |
 | Fonts         | Geist + Bricolage Grotesque                                                                    | Self-hosted via [Fontsource](https://fontsource.org) |

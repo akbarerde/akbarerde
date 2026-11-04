@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 
 import { ComponentGallery } from "@/components/component-gallery"
+import { GalleryMotionProvider } from "@/components/gallery-motion"
 
 export const Route = createFileRoute("/components")({
   head: () => ({
@@ -17,5 +18,9 @@ export const Route = createFileRoute("/components")({
 })
 
 function ComponentsPage() {
-  return <ComponentGallery />
+  return (
+    <GalleryMotionProvider>
+      <ComponentGallery />
+    </GalleryMotionProvider>
+  )
 }
