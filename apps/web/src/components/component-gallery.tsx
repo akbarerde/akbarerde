@@ -530,6 +530,30 @@ export function ComponentGallery() {
   const [date, setDate] = React.useState<Date | undefined>(
     new Date(2026, 0, 15)
   )
+  const [searchQuery, setSearchQuery] = React.useState("")
+  const [matchCounts, setMatchCounts] = React.useState<Record<string, number>>(
+    {}
+  )
+  const query = searchQuery.trim()
+  const reportMatchCount = React.useCallback(
+    (sectionId: string, count: number) => {
+      setMatchCounts((current) =>
+        current[sectionId] === count
+          ? current
+          : { ...current, [sectionId]: count }
+      )
+    },
+    []
+  )
+  const hasAllMatchCounts = sections.every(
+    (section) => section.id in matchCounts
+  )
+  const matchingExampleCount = Object.values(matchCounts).reduce(
+    (total, count) => total + count,
+    0
+  )
+  const noMatches =
+    query.length > 0 && hasAllMatchCounts && matchingExampleCount === 0
 
   return (
     <div className="min-h-svh bg-background">
@@ -553,10 +577,61 @@ export function ComponentGallery() {
           <ThemeToggle />
         </div>
 
-        <SectionNav sections={sections} />
+        {query ? null : <SectionNav sections={sections} />}
 
-        <div className="flex flex-col gap-16 pt-10">
-          <Section section={sections[0]} entrance>
+        <div className="flex flex-col gap-2 py-5 sm:flex-row sm:items-end sm:justify-between">
+          <Field className="w-full max-w-sm">
+            <FieldLabel htmlFor="component-search">
+              Search components
+            </FieldLabel>
+            <Input
+              id="component-search"
+              type="search"
+              placeholder="Name or category"
+              value={searchQuery}
+              aria-controls="component-results"
+              onChange={(event) => setSearchQuery(event.target.value)}
+            />
+          </Field>
+          {query && hasAllMatchCounts && matchingExampleCount > 0 ? (
+            <p
+              aria-live="polite"
+              className="pb-2 text-sm text-muted-foreground"
+            >
+              {matchingExampleCount} matching{" "}
+              {matchingExampleCount === 1 ? "example" : "examples"}
+            </p>
+          ) : null}
+        </div>
+
+        <div id="component-results" className="flex flex-col gap-16 pt-10">
+          {noMatches ? (
+            <Empty role="status" className="my-8">
+              <EmptyHeader>
+                <EmptyTitle>No components found</EmptyTitle>
+                <EmptyDescription>
+                  Try another name or category.
+                </EmptyDescription>
+              </EmptyHeader>
+              <EmptyContent>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setSearchQuery("")
+                  }}
+                >
+                  Clear search
+                </Button>
+              </EmptyContent>
+            </Empty>
+          ) : null}
+          <Section
+            section={sections[0]}
+            entrance
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Button"
               description="Six variants and seven sizes with icon support."
@@ -739,17 +814,45 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[1]}>
+          <Section
+            section={sections[1]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo title="Input" description="Single-line text entry.">
-              <Input type="email" placeholder="you@example.com" />
-              <Input placeholder="Disabled input" disabled />
+              <FieldGroup>
+                <Field>
+                  <FieldLabel htmlFor="gallery-input-email">Email</FieldLabel>
+                  <Input
+                    id="gallery-input-email"
+                    type="email"
+                    placeholder="you@example.com"
+                  />
+                </Field>
+                <Field>
+                  <FieldLabel htmlFor="gallery-input-disabled">
+                    Disabled input
+                  </FieldLabel>
+                  <Input
+                    id="gallery-input-disabled"
+                    placeholder="Unavailable"
+                    disabled
+                  />
+                </Field>
+              </FieldGroup>
             </Demo>
 
             <Demo title="Textarea" description="Multi-line text entry.">
-              <Textarea
-                placeholder="Tell us about your project…"
-                className="min-h-24"
-              />
+              <Field>
+                <FieldLabel htmlFor="gallery-project-description">
+                  Project description
+                </FieldLabel>
+                <Textarea
+                  id="gallery-project-description"
+                  placeholder="Tell us about your project…"
+                  className="min-h-24"
+                />
+              </Field>
             </Demo>
 
             <Demo
@@ -1036,7 +1139,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[2]}>
+          <Section
+            section={sections[2]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Breadcrumb"
               description="Hierarchical location with overflow support."
@@ -1247,7 +1354,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[3]}>
+          <Section
+            section={sections[3]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo title="Dialog" description="A modal for focused tasks.">
               <Dialog>
                 <DialogTrigger
@@ -1507,7 +1618,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[4]}>
+          <Section
+            section={sections[4]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Alert"
               description="Inline status with an optional action."
@@ -1601,7 +1716,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[5]}>
+          <Section
+            section={sections[5]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Card"
               description="A contained surface for grouped content."
@@ -1792,7 +1911,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[6]}>
+          <Section
+            section={sections[6]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Accordion"
               description="Progressive disclosure for FAQs and details."
@@ -1993,7 +2116,11 @@ export function ComponentGallery() {
             </Demo>
           </Section>
 
-          <Section section={sections[7]}>
+          <Section
+            section={sections[7]}
+            query={query}
+            reportMatchCount={reportMatchCount}
+          >
             <Demo
               title="Bubble"
               description="Chat bubbles with variants and reactions."
@@ -2208,11 +2335,37 @@ function Section({
   section,
   children,
   entrance = false,
+  query,
+  reportMatchCount,
 }: {
   section: (typeof sections)[number]
   children: React.ReactNode
   entrance?: boolean
+  query: string
+  reportMatchCount: (sectionId: string, count: number) => void
 }) {
+  const normalizedQuery = query.toLowerCase()
+  const sectionMatches =
+    normalizedQuery.length > 0 &&
+    `${section.title} ${section.description}`
+      .toLowerCase()
+      .includes(normalizedQuery)
+  const matchingChildren = React.Children.toArray(children).filter((child) => {
+    if (!normalizedQuery || sectionMatches) return true
+    return (
+      React.isValidElement<DemoProps>(child) &&
+      `${child.props.title} ${child.props.description}`
+        .toLowerCase()
+        .includes(normalizedQuery)
+    )
+  })
+
+  React.useEffect(() => {
+    reportMatchCount(section.id, matchingChildren.length)
+  }, [matchingChildren.length, reportMatchCount, section.id])
+
+  if (normalizedQuery && matchingChildren.length === 0) return null
+
   return (
     <section id={section.id} className="scroll-mt-28">
       <div className="flex flex-col gap-1 pb-6">
@@ -2220,12 +2373,14 @@ function Section({
           <h2 className="font-heading text-2xl font-semibold tracking-tight">
             {section.title}
           </h2>
-          <Badge variant="secondary">{section.count}</Badge>
+          {normalizedQuery ? null : (
+            <Badge variant="secondary">{section.count}</Badge>
+          )}
         </div>
         <p className="text-sm text-muted-foreground">{section.description}</p>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {React.Children.map(children, (child, index) =>
+        {matchingChildren.map((child, index) =>
           React.isValidElement<DemoProps>(child)
             ? React.cloneElement(
                 child,

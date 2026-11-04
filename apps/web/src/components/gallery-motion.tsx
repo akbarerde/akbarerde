@@ -101,39 +101,44 @@ export function SectionNav({ sections }: { sections: readonly SectionLink[] }) {
   }
 
   return (
-    <nav
-      ref={navRef}
-      aria-label="Component sections"
-      className="sticky top-0 z-30 flex [scrollbar-width:none] gap-1 overflow-x-auto border-b bg-background/95 py-2 backdrop-blur-sm [&::-webkit-scrollbar]:hidden"
-    >
-      {sections.map((section) => {
-        const isActive = active === section.id
+    <>
+      <nav
+        ref={navRef}
+        aria-label="Component sections"
+        className="sticky top-0 z-30 flex [scrollbar-width:none] gap-1 overflow-x-auto border-b bg-background/95 py-2 backdrop-blur-sm [&::-webkit-scrollbar]:hidden"
+      >
+        {sections.map((section) => {
+          const isActive = active === section.id
 
-        return (
-          <a
-            key={section.id}
-            href={`#${section.id}`}
-            aria-current={isActive ? "location" : undefined}
-            onClick={(event) => handleClick(event, section.id)}
-            className={cn(
-              "relative isolate shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors",
-              isActive
-                ? "font-medium text-foreground"
-                : "text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            {isActive ? (
-              <motion.span
-                layoutId="gallery-section-pill"
-                className="absolute inset-0 -z-10 rounded-md bg-muted"
-                transition={reduceMotion ? instantTransition : pillTransition}
-              />
-            ) : null}
-            <span className="relative">{section.title}</span>
-          </a>
-        )
-      })}
-    </nav>
+          return (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              aria-current={isActive ? "location" : undefined}
+              onClick={(event) => handleClick(event, section.id)}
+              className={cn(
+                "relative isolate shrink-0 rounded-md px-3 py-1.5 text-sm transition-colors",
+                isActive
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
+              )}
+            >
+              {isActive ? (
+                <motion.span
+                  layoutId="gallery-section-pill"
+                  className="absolute inset-0 -z-10 rounded-md bg-muted"
+                  transition={reduceMotion ? instantTransition : pillTransition}
+                />
+              ) : null}
+              <span className="relative">{section.title}</span>
+            </a>
+          )
+        })}
+      </nav>
+      <p className="px-3 pt-1 text-xs text-muted-foreground md:hidden">
+        Swipe horizontally to browse all sections.
+      </p>
+    </>
   )
 }
 
