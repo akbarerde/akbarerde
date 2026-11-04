@@ -158,6 +158,7 @@ import {
 import {
   ContextMenu,
   ContextMenuContent,
+  ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
   ContextMenuSeparator,
@@ -188,6 +189,7 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -922,11 +924,11 @@ export function ComponentGallery() {
                 <ComboboxContent>
                   <ComboboxEmpty>No fruit found.</ComboboxEmpty>
                   <ComboboxList>
-                    {fruits.map((fruit) => (
+                    {(fruit) => (
                       <ComboboxItem key={fruit} value={fruit}>
                         {fruit}
                       </ComboboxItem>
-                    ))}
+                    )}
                   </ComboboxList>
                 </ComboboxContent>
               </Combobox>
@@ -1280,7 +1282,9 @@ export function ComponentGallery() {
           <Section section={sections[3]}>
             <Demo title="Dialog" description="A modal for focused tasks.">
               <Dialog>
-                <DialogTrigger render={<Button variant="outline" />}>
+                <DialogTrigger
+                  render={<Button variant="outline" className="w-fit" />}
+                >
                   Edit profile
                 </DialogTrigger>
                 <DialogContent>
@@ -1309,14 +1313,16 @@ export function ComponentGallery() {
               description="A blocking confirmation for risky actions."
             >
               <AlertDialog>
-                <AlertDialogTrigger render={<Button variant="destructive" />}>
+                <AlertDialogTrigger
+                  render={<Button variant="destructive" className="w-fit" />}
+                >
                   Delete project
                 </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogMedia>
-                    <TriangleAlertIcon />
-                  </AlertDialogMedia>
+                <AlertDialogContent size="sm">
                   <AlertDialogHeader>
+                    <AlertDialogMedia className="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
+                      <TriangleAlertIcon />
+                    </AlertDialogMedia>
                     <AlertDialogTitle>Delete this project?</AlertDialogTitle>
                     <AlertDialogDescription>
                       This permanently removes the project and all of its
@@ -1324,7 +1330,9 @@ export function ComponentGallery() {
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel variant="ghost">
+                      Cancel
+                    </AlertDialogCancel>
                     <AlertDialogAction variant="destructive">
                       Delete
                     </AlertDialogAction>
@@ -1338,7 +1346,9 @@ export function ComponentGallery() {
               description="A side panel for secondary workflows."
             >
               <Sheet>
-                <SheetTrigger render={<Button variant="outline" />}>
+                <SheetTrigger
+                  render={<Button variant="outline" className="w-fit" />}
+                >
                   Open sheet
                 </SheetTrigger>
                 <SheetContent>
@@ -1367,7 +1377,9 @@ export function ComponentGallery() {
               description="A bottom sheet for touch-first flows."
             >
               <Drawer>
-                <DrawerTrigger render={<Button variant="outline" />}>
+                <DrawerTrigger
+                  render={<Button variant="outline" className="w-fit" />}
+                >
                   Open drawer
                 </DrawerTrigger>
                 <DrawerContent>
@@ -1396,7 +1408,9 @@ export function ComponentGallery() {
 
             <Demo title="Popover" description="An anchored floating panel.">
               <Popover>
-                <PopoverTrigger render={<Button variant="outline" />}>
+                <PopoverTrigger
+                  render={<Button variant="outline" className="w-fit" />}
+                >
                   Open popover
                 </PopoverTrigger>
                 <PopoverContent className="w-72">
@@ -1426,7 +1440,9 @@ export function ComponentGallery() {
 
             <Demo title="Hover Card" description="A rich preview on hover.">
               <HoverCard>
-                <HoverCardTrigger render={<Button variant="link" />}>
+                <HoverCardTrigger
+                  render={<Button variant="link" className="w-fit" />}
+                >
                   @akbarerde
                 </HoverCardTrigger>
                 <HoverCardContent>
@@ -1464,24 +1480,27 @@ export function ComponentGallery() {
 
             <Demo title="Dropdown Menu" description="A contextual action menu.">
               <DropdownMenu>
-                <DropdownMenuTrigger render={<Button variant="outline" />}>
+                <DropdownMenuTrigger
+                  render={<Button variant="outline" className="w-fit" />}
+                >
                   Actions
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-48">
-                  <DropdownMenuLabel>My account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <UserIcon /> Profile{" "}
-                    <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <CreditCardIcon /> Billing{" "}
-                    <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <SettingsIcon /> Settings{" "}
-                    <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                  </DropdownMenuItem>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>My account</DropdownMenuLabel>
+                    <DropdownMenuItem>
+                      <UserIcon /> Profile
+                      <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <CreditCardIcon /> Billing
+                      <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <SettingsIcon /> Settings
+                      <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem variant="destructive">
                     <TrashIcon /> Delete account
@@ -1495,21 +1514,22 @@ export function ComponentGallery() {
               description="Actions revealed by right-click."
             >
               <ContextMenu>
-                <ContextMenuTrigger className="flex h-28 items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
+                <ContextMenuTrigger className="flex aspect-[2/0.5] w-full items-center justify-center rounded-lg border text-sm text-muted-foreground">
                   Right-click anywhere here
                 </ContextMenuTrigger>
                 <ContextMenuContent className="w-48">
-                  <ContextMenuLabel>File</ContextMenuLabel>
-                  <ContextMenuSeparator />
-                  <ContextMenuItem>
-                    Open <ContextMenuShortcut>⌘O</ContextMenuShortcut>
-                  </ContextMenuItem>
-                  <ContextMenuItem>
-                    Rename <ContextMenuShortcut>F2</ContextMenuShortcut>
-                  </ContextMenuItem>
-                  <ContextMenuItem>
-                    Duplicate <ContextMenuShortcut>⌘D</ContextMenuShortcut>
-                  </ContextMenuItem>
+                  <ContextMenuGroup>
+                    <ContextMenuLabel>File</ContextMenuLabel>
+                    <ContextMenuItem>
+                      Open <ContextMenuShortcut>⌘O</ContextMenuShortcut>
+                    </ContextMenuItem>
+                    <ContextMenuItem>
+                      Rename <ContextMenuShortcut>F2</ContextMenuShortcut>
+                    </ContextMenuItem>
+                    <ContextMenuItem>
+                      Duplicate <ContextMenuShortcut>⌘D</ContextMenuShortcut>
+                    </ContextMenuItem>
+                  </ContextMenuGroup>
                   <ContextMenuSeparator />
                   <ContextMenuItem variant="destructive">
                     Delete <ContextMenuShortcut>⌫</ContextMenuShortcut>
