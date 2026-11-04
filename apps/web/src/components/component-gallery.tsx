@@ -538,12 +538,9 @@ export function ComponentGallery() {
       <main className="mx-auto flex w-full max-w-6xl flex-col px-4 py-10 sm:px-6 lg:px-8">
         <div className="flex items-start justify-between gap-4 border-b pb-6">
           <div className="flex min-w-0 flex-col gap-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="font-heading text-3xl font-semibold tracking-tight">
-                Components
-              </h1>
-              <Badge variant="secondary">63 components</Badge>
-            </div>
+            <h1 className="font-heading text-3xl font-semibold tracking-tight">
+              Components
+            </h1>
             <p className="max-w-2xl text-sm text-pretty text-muted-foreground sm:text-base">
               Every component installed in{" "}
               <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground">
