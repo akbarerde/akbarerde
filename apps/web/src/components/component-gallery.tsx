@@ -1082,7 +1082,7 @@ export function ComponentGallery() {
                 <BreadcrumbList>
                   <BreadcrumbItem>
                     <BreadcrumbLink href="#navigation">
-                      <HomeIcon />
+                      <HomeIcon className="size-4" />
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator />
@@ -1859,10 +1859,16 @@ export function ComponentGallery() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium">Advanced settings</span>
                   <CollapsibleTrigger
-                    render={<Button variant="ghost" size="icon-sm" />}
+                    render={
+                      <Button
+                        variant="ghost"
+                        size="icon-sm"
+                        className="group"
+                      />
+                    }
                     aria-label="Toggle settings"
                   >
-                    <ChevronRightIcon className="transition-transform duration-200 group-aria-expanded:rotate-90" />
+                    <ChevronRightIcon className="transition-transform duration-200 group-data-[panel-open]:rotate-90" />
                   </CollapsibleTrigger>
                 </div>
                 <CollapsibleContent className="pt-3 text-sm text-muted-foreground">
