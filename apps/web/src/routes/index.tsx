@@ -19,9 +19,6 @@ function App() {
           ERDE
         </span>
       </h1>
-      <p className="font-sans text-sm text-primary-foreground/70">
-        Studio personal dan sistem desain.
-      </p>
     </main>
   )
 }
